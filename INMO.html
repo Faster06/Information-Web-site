@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inmo — фильмы и аниме</title>
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+    <style>
+        body
+         .hero {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.hero {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+     .hero button {
+    margin-top: 15px;
+    background: white;
+    color: #6c5ce7;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+.filters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: white;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background: #5a4fd6;
+}
+ 
+        
+        {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+       header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+    background: #6c5ce7;
+    padding: 15px 25px;
+    color: #fff;
+
+    position: relative;
+}
+
+        header h1{
+    position:absolute;
+    left:25px;
+
+    margin:0;
+    font-size:26px;
+}
+
+        .search-box {
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            width: 240px;
+        }
+
+        .search-box button {
+            background: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #notFound {
+    margin-top: 20px;
+    color: #888;
+}
+
+        
+        .menu-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .menu-buttons a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .menu-buttons a:hover {
+            background: rgba(255,255,255,0.3);
+        }
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+        h2.section-title {
+            font-size: 28px;
+            margin-top: 40px;
+        }
+
+         
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .rating {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 25px;
+            background: #eee;
+            text-align: center;
+        }
+
+        a {
+            color: #6c5ce7;
+            text-decoration: none;
+        }
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+    .search-box input {
+        width: 100%;
+    }
+
+  .menu-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    align-items:center;
+}
+
+.menu-buttons a{
+    width:75px;
+    height:75px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+    background:rgba(255,255,255,0.15);
+
+    border-radius:18px;
+
+    color:white;
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.menu-buttons a i{
+    font-size:22px;
+}
+
+.menu-buttons a span{
+    font-size:12px;
+}
+
+.menu-buttons a:hover{
+    background:rgba(255,255,255,0.3);
+    transform:translateY(-3px);
+}
+
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+    
+    
+    h1 {
+        font-size: 20px;
+    }
+
+    h2.section-title {
+        font-size: 20px;
+    }
+
+    .card img {
+        height: 220px;
+    }
+}
+    body.dark {
+    background: #121212;
+    color: #eee;
+}
+
+body.dark header {
+    background: #2c2c54;
+}
+
+body.dark .container,
+body.dark .card,
+body.dark .friend-card,
+body.dark .settings-block {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+body.dark input,
+body.dark button {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+} 
+
+}  
+    </style> 
+
+</head>
+
+<body>
+
+<header>
+    <h1>Inmo</h1>
+
+  <div class="menu-buttons">
+
+    <a href="Profile.html">
+        <i class="fa fa-user"></i>
+        <span>Профиль</span>
+    </a>
+
+    <a href="page friends.html">
+        <i class="fa fa-users"></i>
+        <span>Друзья</span>
+    </a>
+
+    <a href="found.html">
+        <i class="fa fa-search"></i>
+        <span>Поиск</span>
+    </a>
+
+    <a href="Discussions.html">
+        <i class="fa fa-comment-dots"></i>
+        <span>Обсуждения</span>
+    </a>
+
+    <a href="settings.html">
+        <i class="fa fa-gear"></i>
+        <span>Настройки</span>
+    </a>
+
+</div>
+   
+</header>
+
+
+<div class="container">
+
+ <div class="hero">
+    <h1>Просто введите название</h1>
+    <p>Найдите то что хотели</p>
+   
+  <button onclick="location.href='found.html'">
+    🔎 Начать поиск
+</button>
+
+</div>
+<div class="filters">
+    <button onclick="goCategory('anime')">Аниме</button>
+    <button onclick="goCategory('movie')">Фильмы</button>
+    <button onclick="goCategory('cartoon')">Мультфильмы</button>
+    <button onclick="goCategory('serial')">Сериалы</button>
+</div>
+   <div class="section">
+    <h2 class="section-title">Новинки</h2>
+    <div class="grid" id="new"></div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">Золотая коллекция</h2>
+    <div class="grid" id="gold"></div>
+</div>
+
+<div class="section">
+    <h2 class="section-title">Рекомендации</h2>
+    <div class="grid" id="recommendations"></div>
+</div>
+    
+</div>
+<footer>
+    © 2025 Inmo. Все права защищены. <br><br>
+    <a href="#">Политика конфиденциальности</a> |
+    <a href="#">Контакты</a>
+</footer>
+<script>
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+}
+</script>
+
+
+
+   
+<script>
+function goCategory(type) {
+    window.location.href = "catalog.html?category=" + type;
+}
+</script>
+
+<script>
+const movies = [
+       {
+    title: "Атака титанов",
+    img: "aot.jpg",
+    rating: 9.0,
+    category: "recommendations",
+    link: "Title AOT.html"  
+   
+    },
+    {
+        title: "Матрица",
+        img: "matrix.jpg",
+        rating: 8.7,
+        category: "recommendations",
+        link: "страница тайтла Матрица.html"
+
+    },
+    {
+        title: "Зверополис",
+        img: "zootopia.jpg",
+        rating: 8.0,
+        category: "recommendations",
+        link: "страница тайтла Зверополис.html"
+               
+           
+    },
+    {
+        title: "Кунг-фу Панда",
+        img: "kungfu.jpg",
+        rating: 7.8,
+        category: "recommendations"
+        
+        
+        
+     },
+    {
+        title: "Твоё имя",
+        img: "yourname.jpg",
+        rating: 9.0,
+        category: "recommendations"
+       
+        
+    },
+    {
+        title: "Детектив Конан",
+        img: "conan.jpg",
+        rating: 8.2,
+        category: "recommendations"
+        
+    },
+    {
+        title: "Rush hour",
+        img: "rushhour.jpg",
+        rating: 7.0,
+        category: "recommendations"
+        
+      
+    },
+    {
+        title: "Добро пожаловать в ад ирума-кун",
+        img: "iruma.jpg",
+        rating: 7.8,
+        category: "recommendations"
+       
+       
+    },
+    {
+        title: "Детектив Монк",
+        img: "monk.jpg",
+        rating: 8.1,
+        category: "recommendations"
+             
+    },
+    {
+        title: "Аватар",
+        img: "avatar.jpg",
+        rating: 7.8,
+        category: "recommendations"        
+    },
+    {
+        title: "Унесённые призриками",
+        img: "spiritedaway.jpg",
+        rating: 9.0,
+        category: "recommendations"
+       
+      
+    },
+    {
+        title: "Начало",
+        img: "inception.jpg",
+        rating: 8.8,
+        category: "recommendations"         
+    },
+    {
+        title: "Клинок рассекающий демонов",
+        img: "demonslayer.jpg",
+        rating: 8.7,
+        
+     
+        
+    },
+    {
+        title: "Смурфики",
+        img: "smurfs.jpg",
+        rating: 5.4,
+        category: "recommendations"        
+    },
+    {
+        title: "Аватар Анг",
+        img: "atla.jpg",
+        rating: 8.0,
+        category: "recommendations"        
+    },
+    {
+        title: "Необъятый океан",
+        img: "grandblue.jpg",
+        rating: 8.5,
+        category: "recommendations"       
+        
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        title: "Титаник",
+        img: "titanik.jpg",
+        rating: 8.0,
+        category: "gold"
+          },
+     {
+        title: "Ходячий Замок",
+        img: "замок.jpg",
+        rating: 8.3,
+        category: "gold"
+           },
+    {
+        title: "Breaking Bad",
+        img: "Breaking Bad.jpg",
+        rating: 7.6,
+        category: "gold"
+       
+    },
+     {
+        title: "Волк с Уолт-Стрида",
+        img: "wolf.jpg",
+        rating: 7.6,
+        category: "gold"
+        
+        
+    },
+
+
+
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+        
+    },
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+          },
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+       
+    },
+
+
+     
+];
+</script>
+<script>
+function renderMovies() {
+    movies.forEach(movie => {
+
+        const card = document.createElement("div");
+        card.className = "card";
+
+       card.innerHTML = `
+    <a href="${movie.link || '#'}" style="text-decoration:none; color:inherit;">
+        <img src="${movie.img}">
+        <h3>${movie.title}</h3>
+        <div class="rating">⭐ ${movie.rating}</div>
+    </a>
+`;
+
+        const container = document.getElementById(movie.category);
+
+        if (container) {
+            container.appendChild(card);
+        }
+    });
+}
+
+renderMovies();
+</script>
+</body>
+</html>

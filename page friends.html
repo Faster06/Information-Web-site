@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Inmo — Друзья</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #6c5ce7;
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 30px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .friend-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .friend-card img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .friend-card h3 {
+            margin: 10px 0 5px;
+        }
+
+        .friend-card button {
+            margin-top: 10px;
+            padding: 6px 14px;
+            border: none;
+            border-radius: 8px;
+            background: #6c5ce7;
+            color: #fff;
+            cursor: pointer;
+        }
+body.dark {
+    background: #121212;
+    color: #eee;
+}
+
+body.dark header {
+    background: #2c2c54;
+}
+
+body.dark .container,
+body.dark .card,
+body.dark .friend-card,
+body.dark .settings-block {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+body.dark input,
+body.dark button {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #555;
+}
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="INMO.html" style="color:white; font-size:18px">← Назад</a>
+
+</header>
+<div class="container">
+    <h2>Ваши друзья</h2>
+
+    <div class="friends-grid">
+        <div class="friend-card">
+            <img src="user1.jpg" alt="User">
+            <h3>Alex</h3>
+            <p>Онлайн</p>
+    <button onclick="window.location.href='chat with friends.html?user=Alex'">
+    Написать
+</button>           
+        </div>
+
+        <div class="friend-card">
+            <img src="user2.jpg" alt="User">
+            <h3>Maria</h3>
+            <p>Была 2 часа назад</p>
+              <button onclick="window.location.href='chat with friends.html?user=Маria'">
+    Написать
+</button>
+        </div>
+
+        <div class="friend-card">
+            <img src="user3.jpg" alt="User">
+            <h3>Denis</h3>
+            <p>Оффлайн</p>
+              <button onclick="window.location.href='chat with friends.html?user=Denis'">
+    Написать
+</button>
+        </div>
+    </div>
+</div>
+<script>
+const switcher = document.getElementById("themeSwitch");
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    switcher.checked = true;
+}
+
+switcher.addEventListener("change", () => {
+    if (switcher.checked) {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
+});
+</script>
+
+
+</body>
+</html>

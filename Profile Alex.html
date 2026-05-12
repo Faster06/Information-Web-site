@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Профиль — Inmo</title>
+<meta name="viewport" content="width=device-width">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+}
+ header {
+            background: #6c5ce7;
+            padding: 15px 25px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+.card {
+    background: #fff;
+    width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background: #6c5ce7;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+button.gray {
+    background: #aaa;
+    cursor: default;
+}
+.status {
+    margin-top: 10px;
+    color: #666;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<a href="Title AOT.html" style="color:white; font-size:18px">← Назад</a>
+</header>
+
+<div class="card">
+    <img src="user1.jpg" alt="Avatar">
+
+    <p>Любит аниме и фантастику</p>
+    <p>⭐️ Любимые: Интерстеллар, Атака титанов</p>
+
+    <button id="friendBtn" onclick="sendRequest()">
+        ➕ Добавить в друзья
+    </button>
+
+    <div class="status" id="statusText"></div>
+</div>
+
+<script>
+const userId = "alex"; 
+const key = "friend_request_" + userId;
+
+const btn = document.getElementById("friendBtn");
+const statusText = document.getElementById("statusText");
+
+function updateUI() {
+    const state = localStorage.getItem(key);
+
+    if (state === "sent") {
+        btn.innerText = "⏳ Запрос отправлен";
+        btn.classList.add("gray");
+        btn.disabled = true;
+        statusText.innerText = "Ожидает подтверждения";
+    }
+
+    if (state === "accepted") {
+        btn.innerText = "✅ В друзьях";
+        btn.classList.add("gray");
+        btn.disabled = true;
+        statusText.innerText = "Вы друзья";
+    }
+}
+
+function sendRequest() {
+    localStorage.setItem(key, "sent");
+    updateUI();
+}
+
+updateUI();
+</script>
+
+
+</body>
+</html>

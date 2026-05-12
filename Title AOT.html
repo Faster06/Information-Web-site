@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Атака титанов — Полная информация</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+        
+     header {
+            background: #6c5ce7;
+            padding: 15px 25px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+     header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+
+
+      
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            margin-top: 25px;
+        }
+
+        .top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .poster {
+            width: 260px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .info h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        .rating {
+            font-size: 22px;
+            color: #f1c40f;
+        }
+
+        .age {
+            margin-top: 10px;
+            display: inline-block;
+            background: #e74c3c;
+            padding: 6px 14px;
+            color: white;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-top: 25px;
+            border-left: 5px solid #6c5ce7;
+            padding-left: 10px;
+        }
+
+        .specs p {
+            margin: 8px 0;
+            font-size: 18px;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .quote {
+            background: #fafafa;
+            padding: 15px;
+            border-left: 5px solid #6c5ce7;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 17px;
+        }
+
+        .btn-fav {
+            margin-top: 20px;
+            background: #e84393;
+            padding: 12px 18px;
+            border-radius: 10px;
+            color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-fav:hover {
+            background: #d1367f;
+        }
+.add-comment {
+    margin-top: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.add-comment textarea {
+    width: 100%;
+    min-height: 80px;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.add-comment button {
+    margin-top: 10px;
+    background: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-comment button:hover {
+    background: #5a4fd6;
+}
+
+.video-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background: black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+    </style>
+</head>
+
+<body>
+
+<header>
+  <a href="INMO.html" style="color:white; font-size:18px">← Назад</a>
+
+</header>
+<div class="container">
+
+    <div class="top">
+        <img src="aot-poster.jpg" class="poster">
+
+        <div class="info">
+            <h1>Атака титанов</h1>
+            <div class="rating">★ 9.0 / 10</div>
+
+            <div class="age">18+</div>
+ <button class="btn-fav" id="favBtn" onclick="toggleFav()">
+    ❤️ Добавить
+</button>
+ 
+        </div>
+    </div>
+
+    <h3 class="section-title">Краткое содержание</h3>
+    <p class="description">
+        Человечество находится на грани уничтожения после появления гигантских существ — титанов.
+        Люди прячутся за огромными стенами, пока один из колоссальных титанов не разрушает ворота
+        и не меняет судьбы главных героев навсегда.
+    </p>
+
+    <h3 class="section-title">Основная информация</h3>
+    <div class="specs">
+        <p><b>Автор манги:</b> Хадзимэ Исаяма</p>
+        <p><b>Режиссёры:</b> Тэцуро Араки, Юитиро Хаяси</p>
+        <p><b>Студии:</b> Wit Studio, MAPPA</p>
+        <p><b>Жанры:</b> экшен, драма, фэнтези, постапокалипсис</p>
+        <p><b>Год выхода:</b> 2013</p>
+        <p><b>Сезонов:</b> 4</p>
+        <p><b>Серий:</b> 89</p>
+        <p><b>Длительность серии:</b> ≈24 мин</p>
+<p><b>Продано манги:</b> более 140 000 000 томов</p>
+        <p><b>Бюджет аниме:</b> $4–7 млн за сезон (оценка)</p>
+        <p><b>Мировые доходы всей франшизы:</b> более $1.2 млрд</p>
+    </div>
+
+    <h3 class="section-title">Актёры озвучивания</h3>
+    <p class="specs">
+        <b>Юки Кадзи</b> — Эрен Йегер<br>
+        <b>Марина Иноуэ</b> — Армин Арлерт<br>
+        <b>Исаяна Сацуки</b> — Микаса Аккерман<br>
+        <b>Хиро Сибата</b> — Леви<br>
+    </p>
+
+    <h3 class="section-title">Комментарий автора</h3>
+    <div class="quote">
+        <b>Хадзимэ Исаяма:</b><br>
+        «Когда я создавал "Атаку титанов", я хотел показать страх, одиночество и борьбу человека
+        с непобедимыми обстоятельствами. Я не ожидал, что история станет мировой».
+    </div>
+
+    <h3 class="section-title">Комментарий режиссёра</h3>
+    <div class="quote">
+        <b>Тэцуро Араки (режиссёр 1 сезона):</b><br>
+        «Это одно из самых эмоциональных и тяжёлых произведений,
+        которые мне доводилось экранизировать. История Эренa — это история
+        ярости, свободы и невозможного выбора».
+    </div>
+
+    <h3 class="section-title">Комментарии известных людей</h3>
+
+    <div class="quote">
+        <b>Илон Маск:</b><br>
+        «Attack on Titan — одно из самых сильных аниме, которое я видел.
+        Глубокий сюжет и мощный антураж».
+    </div>
+
+    <div class="quote">
+        <b>Кодзи Маэда (критик NHK):</b><br>
+        «Это аниме изменило индустрию. Его стиль и сюжет стали новой планкой качества».
+    </div>
+
+    <div class="quote">
+        <b>Дзюн Кавамото (режиссёр Netflix):</b><br>
+        «Уникальный баланс философии, трагедии и экшена — такой сюжет появляется раз в десятилетие».
+    </div>
+
+</div>
+<h2>Трейлер</h2>
+
+<div class="video-box">
+    <video controls>
+        <source src="Трейлер AOT.mp4" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+    </video>
+</div>
+
+<h3 class="section-title">Комментарии пользователей</h3>
+    <div class="comment">
+        <img src="user1.jpg" alt="User">
+        <div class="comment-content">
+            <b><a href="Profile Alex.html">Alex</a></b>
+            <p>Один из самых мощных сюжетов в аниме. Финал до сих пор не выходит из головы.</p>
+        </div>
+    </div>
+
+    <div class="comment">
+        <img src="user2.jpg" alt="User">
+        <div class="comment-content">
+            <b><a href="profile.html">Maria</a></b>
+            <p>Музыка, персонажи и атмосфера — всё на высшем уровне. 10/10.</p>
+        </div>
+    </div>
+
+    <div class="comment">
+        <img src="user3.jpg" alt="User">
+        <div class="comment-content">
+            <b><a href="profile.html">Denis</a></b>
+            <p>Редкий случай, когда аниме заставляет задуматься о свободе и морали.</p>
+        </div>
+    </div>
+<div class="add-comment">
+    <textarea id="commentText" placeholder="Оставить комментарий..."></textarea>
+    <button onclick="addComment()">
+        <i class="fa fa-paper-plane"></i> Отправить
+    </button>
+</div>
+<script>
+function addComment() {
+    const text = document.getElementById("commentText").value.trim();
+    if (!text) return;
+
+    const comments = document.querySelector(".comments");
+
+    const comment = document.createElement("div");
+    comment.className = "comment";
+    comment.innerHTML = 
+        <img src="user1.jpg" alt="User">
+        <div class="comment-content">
+            <b><a href="profile.html">Вы</a></b>
+            <p>${text}</p>
+        </div>
+    ;
+
+    comments.appendChild(comment);
+    document.getElementById("commentText").value = "";
+}
+</script>
+
+<script>
+function addFav() {
+    let item = {
+        id: "aot", 
+        title: "Атака титанов",
+        img: "aot.jpg"
+    };
+
+    let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+    
+    let exists = favorites.some(f => f.id === item.id);
+
+    if (exists) {
+        alert("Уже в избранном 😎");
+        return;
+    }
+
+    favorites.push(item);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+
+    alert("Добавлено ❤️");
+}
+</script>
+<script>
+const film = {
+    id: "aot",
+    title: "Атака титанов",
+    img: "aot.jpg"
+};
+
+function getFavs() {
+    return JSON.parse(localStorage.getItem("favorites")) || [];
+}
+
+function saveFavs(favs) {
+    localStorage.setItem("favorites", JSON.stringify(favs));
+}
+
+function isFav() {
+    return getFavs().some(f => f.id === film.id);
+}
+
+function updateBtn() {
+    const btn = document.getElementById("favBtn");
+
+    if (isFav()) {
+        btn.innerHTML = "💔 Убрать из избранного";
+        btn.style.background = "#e74c3c";
+    } else {
+        btn.innerHTML = "❤️ Добавить в избранное";
+        btn.style.background = "#e84393";
+    }
+}
+
+function toggleFav() {
+    let favs = getFavs();
+
+    if (isFav()) {
+        favs = favs.filter(f => f.id !== film.id);
+    } else {
+        favs.push(film);
+    }
+
+    saveFavs(favs);
+    updateBtn();
+}
+
+
+updateBtn();
+</script>
+
+</body>
+</html>

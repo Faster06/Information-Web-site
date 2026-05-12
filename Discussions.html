@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Inmo — Обсуждения</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+}
+
+
+        header {
+            background: #6c5ce7;
+            color: #fff;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+.container {
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: scale(1.01);
+}
+
+.hidden { display:none; }
+
+.comment {
+    background:#fff;
+    padding:10px;
+    margin-top:10px;
+    border-radius:10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px;
+    margin-top: 10px;
+    border:none;
+    border-radius:10px;
+    background:#6c5ce7;
+    color:white;
+    cursor:pointer;
+}
+
+.new-btn {
+    margin-bottom: 20px;
+}
+
+.back {
+    cursor:pointer;
+    color:white;
+}
+header h1 {
+    font-size: 22px;
+    margin: 0;
+    font-weight: 600;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="INMO.html" style="color:white; font-size:18px">← Назад</a>
+</header>
+
+
+<!-- СПИСОК -->
+<div class="container" id="listView">
+
+    <button class="new-btn" onclick="createNew()">
+        + Новое обсуждение
+    </button>
+
+    <div id="list"></div>
+
+</div>
+
+<!-- ПОСТ -->
+<div class="container hidden" id="postView">
+
+    <h2 id="title"></h2>
+    <p id="text"></p>
+
+    <h3>Комментарии</h3>
+    <div id="comments"></div>
+
+    <input id="input" placeholder="Написать комментарий...">
+    <button onclick="addComment()">Отправить</button>
+
+</div>
+
+<script>
+
+let data = [];
+
+function renderList() {
+    let list = document.getElementById("list");
+    list.innerHTML = "";
+
+    data.forEach((d, i) => {
+        let div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+            <h3>${d.title}</h3>
+            <p>${d.text}</p>
+        `;
+        div.onclick = () => openPost(i);
+        list.appendChild(div);
+    });
+}
+
+function createNew() {
+    let title = prompt("Название обсуждения:");
+    if (!title) return;
+
+    let text = prompt("Описание:");
+    if (!text) return;
+
+    data.push({
+        title,
+        text,
+        comments: []
+    });
+
+    renderList();
+}
+
+let current = null;
+
+function openPost(i) {
+    current = i;
+
+    document.getElementById("listView").classList.add("hidden");
+    document.getElementById("postView").classList.remove("hidden");
+    document.getElementById("backBtn").classList.remove("hidden");
+
+    document.getElementById("title").innerText = data[i].title;
+    document.getElementById("text").innerText = data[i].text;
+
+    renderComments();
+}
+
+function back() {
+    document.getElementById("listView").classList.remove("hidden");
+    document.getElementById("postView").classList.add("hidden");
+    document.getElementById("backBtn").classList.add("hidden");
+}
+
+let backBtn = document.getElementById("backBtn");
+let externalBack = document.getElementById("externalBack");
+
+function openPost(i) {
+    current = i;
+
+    document.getElementById("listView").classList.add("hidden");
+    document.getElementById("postView").classList.remove("hidden");
+
+    
+    externalBack.style.display = "none";
+
+    
+    backBtn.style.display = "inline";
+
+    document.getElementById("title").innerText = data[i].title;
+    document.getElementById("text").innerText = data[i].text;
+
+    renderComments();
+}
+
+function back() {
+    document.getElementById("listView").classList.remove("hidden");
+    document.getElementById("postView").classList.add("hidden");
+
+    // вернуть кнопки
+    externalBack.style.display = "inline";
+    backBtn.style.display = "none";
+}
+
+backBtn.onclick = back;
+
+function addComment() {
+    let val = document.getElementById("input").value;
+    if (!val) return;
+
+    data[current].comments.push(val);
+    document.getElementById("input").value = "";
+
+    renderComments();
+}
+
+function renderComments() {
+    let box = document.getElementById("comments");
+    box.innerHTML = "";
+
+    data[current].comments.forEach(c => {
+        let div = document.createElement("div");
+        div.className = "comment";
+        div.innerText = c;
+        box.appendChild(div);
+    });
+}
+
+renderList();
+
+</script>
+
+</body>
+</html>

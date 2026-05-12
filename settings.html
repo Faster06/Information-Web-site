@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройки — Inmo</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        header {
+            background: #6c5ce7;
+            padding: 15px 25px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+
+        .settings-block {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .settings-block h2 {
+            margin-top: 0;
+        }
+
+        .toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .toggle input {
+            transform: scale(1.4);
+        }
+
+        select {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+        body.dark {
+        background: #121212;
+        color: #eee;
+        }
+
+        body.dark .settings-block {
+        background: #1e1e1e;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        } 
+
+        body.dark header {
+        background: #2c2c54;
+        }
+
+        body.dark select {
+        background: #2a2a2a;
+        color: white;
+        border: 1px solid #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+   <a href="INMO.html" style="color:white; font-size:18px">← Назад</a>
+</header>
+
+<div class="container">
+
+    
+    <div class="settings-block">
+        <h2>Тема оформления</h2>
+        <div class="toggle">
+            <span>Тёмная тема</span>
+            <input type="checkbox" id="themeSwitch">
+        </div>
+    </div>
+
+ <div class="settings-block">
+        <h2>Язык интерфейса</h2>
+        <select>
+            <option>Русский</option>
+            <option>English</option>
+            <option>Deutsch</option>
+        </select>
+    </div>
+</div>
+
+    
+    <section class="section">
+        <h2>Уведомления</h2>
+        <label><input type="checkbox"> Уведомлять о новых фильмах</label><br>
+        <label><input type="checkbox"> Уведомлять о новых аниме</label><br>
+        <label><input type="checkbox"> Email‑рассылки</label>
+    </section>
+
+
+ 
+   
+    <section class="section">
+        <h2>Системные параметры</h2>
+        <button>Очистить кэш</button>
+        <button>Сбросить настройки</button>
+    </section>
+<script>
+const switcher = document.getElementById("themeSwitch");
+
+if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+    switcher.checked = true;
+}
+
+
+switcher.addEventListener("change", () => {
+    if (switcher.checked) {
+        document.body.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+    } else {
+        document.body.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
+});
+</script>
+</body>
+</html>

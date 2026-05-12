@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Inmo — Вход</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Segoe UI", sans-serif;
+    background:#f5f5f5;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+}
+
+.login-box{
+    width:90%;
+    max-width:420px;
+
+    background:#fff;
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.logo{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo h1{
+    margin:0;
+    color:#6c5ce7;
+    font-size:38px;
+}
+
+.logo p{
+    color:#777;
+    margin-top:5px;
+}
+
+.language-select{
+    width:100%;
+    padding:12px;
+    margin-bottom:20px;
+
+    border-radius:12px;
+    border:1px solid #ddd;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    color:#444;
+    font-weight:500;
+}
+
+.input-wrap{
+    position:relative;
+}
+
+.input-wrap i{
+    position:absolute;
+    top:14px;
+    left:14px;
+    color:#999;
+}
+
+.input-wrap input{
+    width:100%;
+    padding:13px 13px 13px 42px;
+
+    border-radius:12px;
+    border:1px solid #ddd;
+
+    font-size:15px;
+    box-sizing:border-box;
+}
+
+.input-wrap input:focus{
+    outline:none;
+    border-color:#6c5ce7;
+}
+
+.login-btn{
+    width:100%;
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#6c5ce7;
+    color:white;
+
+    font-size:16px;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#5a4bd6;
+}
+
+.bottom-text{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
+}
+
+.bottom-text a{
+    color:#6c5ce7;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.error{
+    color:#e74c3c;
+    margin-bottom:15px;
+    display:none;
+}
+
+body.dark{
+    background:#121212;
+}
+
+body.dark .login-box{
+    background:#1e1e1e;
+}
+
+body.dark input,
+body.dark select{
+    background:#2a2a2a;
+    color:white;
+    border:1px solid #555;
+}
+
+body.dark label,
+body.dark .bottom-text,
+body.dark .logo p{
+    color:#ddd;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <div class="logo">
+        <h1>Inmo</h1>
+        <p id="loginText">Вход в аккаунт</p>
+    </div>
+
+    <select id="languageSelect" class="language-select">
+        <option value="ru">Русский</option>
+        <option value="en">English</option>
+    </select>
+
+    <div class="error" id="error">
+        Неверный email или пароль
+    </div>
+
+    <div class="input-box">
+        <label id="emailLabel">Email</label>
+
+        <div class="input-wrap">
+            <i class="fa fa-envelope"></i>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="example@mail.com"
+            >
+        </div>
+    </div>
+
+    <div class="input-box">
+        <label id="passwordLabel">Пароль</label>
+
+        <div class="input-wrap">
+            <i class="fa fa-lock"></i>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Введите парол"
+            >
+        </div>
+    </div>
+
+    <button class="login-btn" id="loginBtn" onclick="login()">
+        Войти
+    </button>
+
+    <div class="bottom-text">
+        <span id="noAcc">Нет аккаунта?</span>
+        <a href="register.html" id="createAcc">
+            Создать аккаунт
+        </a>
+    </div>
+
+</div>
+
+<script>
+
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+}
+
+function login(){
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    let savedEmail = localStorage.getItem("userEmail");
+    let savedPassword = localStorage.getItem("userPassword");
+
+    if(email === savedEmail && password === savedPassword){
+
+        localStorage.setItem("loggedIn", "true");
+
+        window.location.href = "INMO.html";
+
+    }else{
+
+        document.getElementById("error").style.display = "block";
+
+    }
+}
+
+
+const translations = {
+
+    ru: {
+        loginText: "Вход в аккаунт",
+        emailLabel: "Email",
+        passwordLabel: "Пароль",
+        loginBtn: "Войти",
+        noAcc: "Нет аккаунта?",
+        createAcc: "Создать аккаунт",
+        error: "Неверный email или пароль"
+        
+    },
+
+    en: {
+        loginText: "Login to Account",
+        emailLabel: "Email",
+        passwordLabel: "Password",
+        passwordPlaceholder: "Enter password",
+        loginBtn: "Login",
+        noAcc: "No account?",
+        createAcc: "Create",
+        error: "Wrong email or password"
+        
+        }
+};
+
+const langSelect = document.getElementById("languageSelect");
+
+langSelect.addEventListener("change", () => {
+
+    const lang = langSelect.value;
+
+    document.getElementById("loginText").innerText =
+        translations[lang].loginText;
+
+    document.getElementById("emailLabel").innerText =
+        translations[lang].emailLabel;
+
+    document.getElementById("passwordLabel").innerText =
+        translations[lang].passwordLabel;
+    
+   document.getElementById("password").placeholder =
+    translations[lang].passwordPlaceholder;
+
+    document.getElementById("loginBtn").innerText =
+        translations[lang].loginBtn;
+
+    document.getElementById("noAcc").innerText =
+        translations[lang].noAcc;
+
+    document.getElementById("createAcc").innerText =
+        translations[lang].createAcc;
+
+    document.getElementById("error").innerText =
+        translations[lang].error;
+
+    localStorage.setItem("language", lang);
+});
+
+const savedLang = localStorage.getItem("language");
+
+if(savedLang){
+
+    langSelect.value = savedLang;
+
+    langSelect.dispatchEvent(new Event("change"));
+}
+
+</script>
+
+</body>
+</html>
