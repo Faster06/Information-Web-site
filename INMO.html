@@ -105,7 +105,26 @@
     margin:0;
     font-size:26px;
 }
+ .menu-buttons {
+            display: flex;
+            gap: 12px;
+        }
 
+        .menu-buttons a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .menu-buttons a:hover {
+            background: rgba(255,255,255,0.3);
+        }
         .search-box {
             display: flex;
             gap: 8px;
@@ -131,26 +150,18 @@
 }
 
         
-        .menu-buttons {
-            display: flex;
-            gap: 12px;
-        }
+       header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
 
-        .menu-buttons a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 8px 14px;
-            background: rgba(255,255,255,0.15);
-            color: #fff;
-            border-radius: 10px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
+    background: #6c5ce7;
+    padding: 15px 25px;
+    color: #fff;
 
-        .menu-buttons a:hover {
-            background: rgba(255,255,255,0.3);
-        }
+    position: relative;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -318,28 +329,23 @@ body.dark button {
   <div class="menu-buttons">
 
     <a href="Profile.html">
-        <i class="fa fa-user"></i>
-        <span>Профиль</span>
+        <i class="fa fa-user"></i> Профиль
     </a>
 
     <a href="page friends.html">
-        <i class="fa fa-users"></i>
-        <span>Друзья</span>
+        <i class="fa fa-users"></i> Друзья
     </a>
 
     <a href="found.html">
-        <i class="fa fa-search"></i>
-        <span>Поиск</span>
+        <i class="fa fa-search"></i> Поиск
     </a>
 
     <a href="Discussions.html">
-        <i class="fa fa-comment-dots"></i>
-        <span>Обсуждения</span>
+        <i class="fa fa-comment-dots"></i> Обсуждения
     </a>
 
     <a href="settings.html">
-        <i class="fa fa-gear"></i>
-        <span>Настройки</span>
+        <i class="fa fa-gear"></i> Настройки
     </a>
 
 </div>
