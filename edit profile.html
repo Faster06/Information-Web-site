@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Редактировать профиль — Inmo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:"Segoe UI", sans-serif;
+    background:#f5f5f5;
+}
+
+header{
+    background:#6c5ce7;
+    color:white;
+
+    padding:15px 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+}
+
+.container{
+    width:90%;
+    max-width:500px;
+
+    margin:30px auto;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+.avatar{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.avatar img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+
+    border:4px solid #6c5ce7;
+}
+
+.avatar input{
+    margin-top:15px;
+}
+
+.input-box{
+    margin-bottom:18px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#444;
+}
+
+.input-box input,
+textarea{
+    width:100%;
+
+    padding:12px;
+
+    border-radius:12px;
+    border:1px solid #ddd;
+
+    box-sizing:border-box;
+
+    font-size:15px;
+}
+
+textarea{
+    min-height:100px;
+    resize:none;
+}
+
+.save-btn{
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#6c5ce7;
+    color:white;
+
+    font-size:16px;
+    cursor:pointer;
+}
+
+.save-btn:hover{
+    background:#5b4bcf;
+}
+
+body.dark{
+    background:#121212;
+}
+
+body.dark .container{
+    background:#1e1e1e;
+}
+
+body.dark input,
+body.dark textarea{
+    background:#2a2a2a;
+    color:white;
+    border:1px solid #555;
+}
+
+body.dark label{
+    color:#eee;
+}
+
+.file-label{
+    display:inline-block;
+
+    padding:10px 18px;
+
+    background:#6c5ce7;
+    color:white;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    margin-top:15px;
+
+    transition:0.3s;
+}
+
+.file-label:hover{
+    background:#5a4fd6;
+}
+
+#file{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="container">
+
+    <div class="avatar">
+
+        <img id="avatarPreview"
+        src="avatar.jpg">
+
+        <br>
+
+       <label class="file-label" for="file">
+    <i class="fa fa-image"></i>
+    Выбрать фото
+</label>
+
+<input
+    id="file"
+    type="file"
+    accept="image/*"
+    onchange="changeAvatar(event)"
+>
+    </div>
+
+    <div class="input-box">
+        <label>Имя</label>
+
+        <input
+            type="text"
+            id="name"
+            placeholder="Ваше имя"
+        >
+    </div>
+
+    <div class="input-box">
+        <label>Описание</label>
+
+        <textarea
+            id="bio"
+            placeholder="Расскажите о себе"
+        ></textarea>
+    </div>
+
+    <button class="save-btn"
+    onclick="saveProfile()">
+
+        Сохранить
+    </button>
+
+</div>
+
+<script>
+
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+}
+
+document.getElementById("name").value =
+localStorage.getItem("profileName") || "";
+
+document.getElementById("bio").value =
+localStorage.getItem("profileBio") || "";
+
+const savedAvatar =
+localStorage.getItem("profileAvatar");
+
+if(savedAvatar){
+    document.getElementById("avatarPreview").src =
+    savedAvatar;
+}
+
+function changeAvatar(event){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        document.getElementById("avatarPreview").src =
+        e.target.result;
+
+        localStorage.setItem(
+            "profileAvatar",
+            e.target.result
+        );
+    }
+
+    reader.readAsDataURL(file);
+}
+
+function saveProfile(){
+
+    localStorage.setItem(
+        "profileName",
+        document.getElementById("name").value
+    );
+
+    localStorage.setItem(
+        "profileBio",
+        document.getElementById("bio").value
+    );
+
+    alert("Профиль сохранён");
+
+    window.location.href = "Profile.html";
+}
+
+</script>
+
+</body>
+</html>
