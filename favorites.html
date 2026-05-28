@@ -68,6 +68,16 @@ header {
     <p id="empty" class="empty">Пока ничего нет 😢</p>
 </div>
 <script>
+
+if(localStorage.getItem("theme") === "dark"){
+
+    document.body.classList.add("dark");
+
+}
+
+</script>
+    
+<script>
 let list = document.getElementById("list");
 let empty = document.getElementById("empty");
 
