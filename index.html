@@ -398,9 +398,11 @@ if (localStorage.getItem("theme") === "dark") {
 </script>
 
 <script>
+<script>
+
 function openProfile(){
 
-    // сохраняем страницу
+    // запоминаем текущую страницу
     localStorage.setItem(
         "returnPage",
         window.location.href
@@ -409,18 +411,17 @@ function openProfile(){
     const loggedIn =
         localStorage.getItem("loggedIn");
 
-    // если вошёл
     if(loggedIn === "true"){
 
         window.location.href = "Profile.html";
 
     }else{
 
-        // если не вошёл
         window.location.href = "login.html";
 
     }
 }
+
 </script>
 
 
