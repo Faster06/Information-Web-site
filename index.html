@@ -397,12 +397,17 @@ if (localStorage.getItem("theme") === "dark") {
 }
 </script>
 
-   
 <script>
-
 function openProfile(){
 
-    const loggedIn = localStorage.getItem("loggedIn");
+    // сохраняем страницу
+    localStorage.setItem(
+        "returnPage",
+        window.location.href
+    );
+
+    const loggedIn =
+        localStorage.getItem("loggedIn");
 
     // если вошёл
     if(loggedIn === "true"){
@@ -416,8 +421,9 @@ function openProfile(){
 
     }
 }
-
 </script>
+
+
 
 
 
