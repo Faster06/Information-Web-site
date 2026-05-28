@@ -328,10 +328,11 @@ body.dark button {
 
   <div class="menu-buttons">
 
-    <a href="Profile.html">
-        <i class="fa fa-user"></i> Профиль
-    </a>
-
+    html id="ap8k2m"
+<a href="#" onclick="openProfile()">
+    <i class="fa fa-user"></i> Профиль
+</a>
+      
     <a href="page friends.html">
         <i class="fa fa-users"></i> Друзья
     </a>
@@ -396,6 +397,30 @@ if (localStorage.getItem("theme") === "dark") {
     document.body.classList.add("dark");
 }
 </script>
+
+    html id="xk2m1s"
+<script>
+
+function openProfile(){
+
+    const loggedIn = localStorage.getItem("loggedIn");
+
+    // если вошёл
+    if(loggedIn === "true"){
+
+        window.location.href = "Profile.html";
+
+    }else{
+
+        // если не вошёл
+        window.location.href = "login.html";
+
+    }
+}
+
+</script>
+
+
 
 
 
