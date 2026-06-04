@@ -11,7 +11,12 @@
 
     
     <style>
-        body
+      body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: #f5f5f5;
+    color: #222;
+}
          .hero {
     background: linear-gradient(135deg, #6c5ce7, #a29bfe);
     color: white;
@@ -211,86 +216,64 @@
             text-decoration: none;
         }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
 
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    header h1{
+        position: static;
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
-    .search-box {
+    header{
+        padding: 20px;
+        align-items: center;
+    }
+
+    .menu-buttons{
         width: 100%;
-    }
-    .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-    .search-box input {
-        width: 100%;
+        flex-wrap: wrap;
     }
 
-  .menu-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    align-items:center;
-}
-
-.menu-buttons a{
-    width:75px;
-    height:75px;
-
-    display:flex;
-    flex-direction:column;
-
-    justify-content:center;
-    align-items:center;
-
-    gap:6px;
-
-    background:rgba(255,255,255,0.15);
-
-    border-radius:18px;
-
-    color:white;
-    text-decoration:none;
-
-    transition:0.3s;
-}
-
-.menu-buttons a i{
-    font-size:22px;
-}
-
-.menu-buttons a span{
-    font-size:12px;
-}
-
-.menu-buttons a:hover{
-    background:rgba(255,255,255,0.3);
-    transform:translateY(-3px);
-}
-
-    .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-    
-    
-    h1 {
-        font-size: 20px;
+    .menu-buttons a{
+        flex: 1 1 40%;
+        min-width: 120px;
     }
 
-    h2.section-title {
-        font-size: 20px;
+    .hero{
+        padding: 30px 15px;
     }
 
-    .card img {
-        height: 220px;
+    .hero h1{
+        font-size: 26px;
+        line-height: 34px;
     }
+
+    .hero p{
+        font-size: 15px;
+    }
+
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filters button{
+        flex: 1 1 40%;
+    }
+
+    .grid{
+        grid-template-columns: 1fr;
+    }
+
+    .card{
+        padding: 12px;
+    }
+
+    .card img{
+        height: 260px;
+    }
+
 }
     body.dark {
     background: #121212;
@@ -316,7 +299,6 @@ body.dark button {
     border: 1px solid #555;
 } 
 
-}  
     </style> 
 
 </head>
