@@ -167,41 +167,6 @@
     height: auto;
     display: block;
 }
-body.dark{
-    background:#121212;
-    color:white;
-}
-
-body.dark .card,
-body.dark .container,
-body.dark .login-box,
-body.dark .profile-box,
-body.dark .settings-box{
-    background:#1e1e1e;
-    color:white;
-}
-
-body.dark input,
-body.dark button,
-body.dark select,
-body.dark textarea{
-    background:#2a2a2a;
-    color:white;
-    border:1px solid #555;
-}
-
-body.dark header{
-    background:#2c2c54;
-}
-
-body.dark footer{
-    background:#1a1a1a;
-    color:#ddd;
-}
-
-body.dark a{
-    color:#a29bfe;
-}
 
     </style>
 </head>
@@ -209,19 +174,19 @@ body.dark a{
 <body>
 
 <header>
-  <a href="index.html" style="color:white; font-size:18px">← Назад</a>
+  <a href="INMO.html" style="color:white; font-size:18px">← Назад</a>
 
 </header>
 <div class="container">
 
     <div class="top">
-        <img id="posterImage" class="poster">
+        <img src="aot-poster.jpg" class="poster">
 
         <div class="info">
             <h1>Атака титанов</h1>
-            <div class="rating" id="titleRating"></div>
+            <div class="rating">★ 9.0 / 10</div>
 
-            <div class="age" id="titleAge"></div>
+            <div class="age">18+</div>
  <button class="btn-fav" id="favBtn" onclick="toggleFav()">
     ❤️ Добавить
 </button>
@@ -230,7 +195,11 @@ body.dark a{
     </div>
 
     <h3 class="section-title">Краткое содержание</h3>
-    <p class="description" id="titleDescription"></p>
+    <p class="description">
+        Человечество находится на грани уничтожения после появления гигантских существ — титанов.
+        Люди прячутся за огромными стенами, пока один из колоссальных титанов не разрушает ворота
+        и не меняет судьбы главных героев навсегда.
+    </p>
 
     <h3 class="section-title">Основная информация</h3>
     <div class="specs">
@@ -328,17 +297,6 @@ body.dark a{
         <i class="fa fa-paper-plane"></i> Отправить
     </button>
 </div>
-
-<script>
-
-if(localStorage.getItem("theme") === "dark"){
-
-    document.body.classList.add("dark");
-
-}
-
-</script>
-    
 <script>
 function addComment() {
     const text = document.getElementById("commentText").value.trim();
@@ -386,78 +344,51 @@ function addFav() {
 }
 </script>
 <script>
-
-const params = new URLSearchParams(window.location.search);
-
-const id = params.get("id");
-
-const titles = {
-
-aot:{
-name:"Атака титанов",
-
-image:"aot-poster.jpg",
-
-rating:"★ 9.0 / 10",
-
-age:"18+",
-
-description:
-"Человечество находится на грани уничтожения после появления гигантских титанов."
-},
-
-naruto:{
-name:"Наруто",
-
-image:"naruto.jpg",
-
-rating:"★ 8.8 / 10",
-
-age:"16+",
-
-description:
-"Наруто мечтает стать Хокаге."
-},
-
-matrix:{
-name:"Матрица",
-
-image:"matrix.jpg",
-
-rating:"★ 8.7 / 10",
-
-age:"16+",
-
-description:
-"Нео узнаёт, что весь мир — симуляция."
-}
-
+const film = {
+    id: "aot",
+    title: "Атака титанов",
+    img: "aot.jpg"
 };
 
-if(titles[id]){
+function getFavs() {
+    return JSON.parse(localStorage.getItem("favorites")) || [];
+}
 
-document.getElementById("titleName").textContent =
-titles[id].name;
+function saveFavs(favs) {
+    localStorage.setItem("favorites", JSON.stringify(favs));
+}
 
-document.getElementById("posterImage").src =
-titles[id].image;
+function isFav() {
+    return getFavs().some(f => f.id === film.id);
+}
 
-document.getElementById("titleRating").textContent =
-titles[id].rating;
+function updateBtn() {
+    const btn = document.getElementById("favBtn");
 
-document.getElementById("titleAge").textContent =
-titles[id].age;
+    if (isFav()) {
+        btn.innerHTML = "💔 Убрать из избранного";
+        btn.style.background = "#e74c3c";
+    } else {
+        btn.innerHTML = "❤️ Добавить в избранное";
+        btn.style.background = "#e84393";
+    }
+}
 
-document.getElementById("titleDescription").textContent =
-titles[id].description;
+function toggleFav() {
+    let favs = getFavs();
 
-document.title =
-titles[id].name + " — Inmo";
+    if (isFav()) {
+        favs = favs.filter(f => f.id !== film.id);
+    } else {
+        favs.push(film);
+    }
 
+    saveFavs(favs);
+    updateBtn();
 }
 
 
-
+updateBtn();
 </script>
 
 </body>
