@@ -215,13 +215,13 @@ body.dark a{
 <div class="container">
 
     <div class="top">
-        <img src="aot-poster.jpg" class="poster">
+        <img id="posterImage" class="poster">
 
         <div class="info">
             <h1>Атака титанов</h1>
-            <div class="rating">★ 9.0 / 10</div>
+            <div class="rating" id="titleRating"></div>
 
-            <div class="age">18+</div>
+            <div class="age" id="titleAge"></div>
  <button class="btn-fav" id="favBtn" onclick="toggleFav()">
     ❤️ Добавить
 </button>
@@ -230,11 +230,7 @@ body.dark a{
     </div>
 
     <h3 class="section-title">Краткое содержание</h3>
-    <p class="description">
-        Человечество находится на грани уничтожения после появления гигантских существ — титанов.
-        Люди прячутся за огромными стенами, пока один из колоссальных титанов не разрушает ворота
-        и не меняет судьбы главных героев навсегда.
-    </p>
+    <p class="description" id="titleDescription"></p>
 
     <h3 class="section-title">Основная информация</h3>
     <div class="specs">
@@ -390,51 +386,78 @@ function addFav() {
 }
 </script>
 <script>
-const film = {
-    id: "aot",
-    title: "Атака титанов",
-    img: "aot.jpg"
+
+const params = new URLSearchParams(window.location.search);
+
+const id = params.get("id");
+
+const titles = {
+
+aot:{
+name:"Атака титанов",
+
+image:"aot-poster.jpg",
+
+rating:"★ 9.0 / 10",
+
+age:"18+",
+
+description:
+"Человечество находится на грани уничтожения после появления гигантских титанов."
+},
+
+naruto:{
+name:"Наруто",
+
+image:"naruto.jpg",
+
+rating:"★ 8.8 / 10",
+
+age:"16+",
+
+description:
+"Наруто мечтает стать Хокаге."
+},
+
+matrix:{
+name:"Матрица",
+
+image:"matrix.jpg",
+
+rating:"★ 8.7 / 10",
+
+age:"16+",
+
+description:
+"Нео узнаёт, что весь мир — симуляция."
+}
+
 };
 
-function getFavs() {
-    return JSON.parse(localStorage.getItem("favorites")) || [];
+if(titles[id]){
+
+document.getElementById("titleName").textContent =
+titles[id].name;
+
+document.getElementById("posterImage").src =
+titles[id].image;
+
+document.getElementById("titleRating").textContent =
+titles[id].rating;
+
+document.getElementById("titleAge").textContent =
+titles[id].age;
+
+document.getElementById("titleDescription").textContent =
+titles[id].description;
+
+document.title =
+titles[id].name + " — Inmo";
+
 }
 
-function saveFavs(favs) {
-    localStorage.setItem("favorites", JSON.stringify(favs));
-}
+</script>
 
-function isFav() {
-    return getFavs().some(f => f.id === film.id);
-}
-
-function updateBtn() {
-    const btn = document.getElementById("favBtn");
-
-    if (isFav()) {
-        btn.innerHTML = "💔 Убрать из избранного";
-        btn.style.background = "#e74c3c";
-    } else {
-        btn.innerHTML = "❤️ Добавить в избранное";
-        btn.style.background = "#e84393";
-    }
-}
-
-function toggleFav() {
-    let favs = getFavs();
-
-    if (isFav()) {
-        favs = favs.filter(f => f.id !== film.id);
-    } else {
-        favs.push(film);
-    }
-
-    saveFavs(favs);
-    updateBtn();
-}
-
-
-updateBtn();
 </script>
 
 </body>
