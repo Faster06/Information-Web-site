@@ -36,7 +36,7 @@ h1{
 /* GRID */
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
     gap:16px;
     padding:0 20px 40px;
 }
@@ -56,20 +56,30 @@ h1{
     box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
+/* 📏 ОДИНАКОВЫЙ РАЗМЕР КАРТОЧЕК */
 .card img{
     width:100%;
-    height:240px;
+    height:260px;
     object-fit:cover;
     display:block;
 }
 
+/* ТЕКСТ */
 .card h3{
     font-size:14px;
-    margin:10px;
+    margin:8px 10px 4px;
     line-height:1.3;
 }
 
-/* RESPONSIVE */
+/* ⭐ РЕЙТИНГ */
+.rating{
+    margin:0 10px 12px;
+    font-size:13px;
+    font-weight:600;
+    color:#f1c40f;
+}
+
+/* MOBILE */
 @media (max-width:768px){
     .grid{
         grid-template-columns:repeat(3, 1fr);
@@ -77,11 +87,15 @@ h1{
     }
 
     .card img{
-        height:160px;
+        height:170px;
     }
 
     .card h3{
         font-size:11px;
+    }
+
+    .rating{
+        font-size:10px;
     }
 
     h1{
@@ -112,6 +126,7 @@ goldMovies.forEach(m => {
             <a href="${m.link || '#'}" style="text-decoration:none; color:inherit;">
                 <img src="${m.img}">
                 <h3>${m.title}</h3>
+                <div class="rating">⭐ ${m.rating ?? "—"}</div>
             </a>
         </div>
     `;
