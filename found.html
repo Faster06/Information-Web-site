@@ -464,7 +464,8 @@ input.addEventListener("input", () => {
     }
 
 const filtered = movies.filter(m =>
-    m.title.toLowerCase().includes(value)
+    m.title.toLowerCase().includes(value) ||
+    (m.category && m.category.toLowerCase().includes(value))
 );
 
     if (filtered.length === 0) {
