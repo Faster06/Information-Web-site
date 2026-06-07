@@ -401,6 +401,12 @@ function goBack(){
 
     }
 
+    else if(document.referrer.includes("catalog")){
+
+        history.back();
+
+    }
+
     else{
 
         window.location.href = "index.html";
@@ -410,6 +416,5 @@ function goBack(){
 }
 
 </script>
-
 </body>
 </html>
