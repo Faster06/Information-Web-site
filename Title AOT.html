@@ -174,7 +174,7 @@
 <body>
 
 <header>
-  <a href="index.html" style="color:white; font-size:18px">← Назад</a>
+  <a href="#" onclick="goBack()">← Назад</a>
 
 </header>
 <div class="container">
@@ -389,6 +389,26 @@ function toggleFav() {
 
 
 updateBtn();
+</script>
+
+<script>
+
+function goBack(){
+
+    if(document.referrer.includes("found")){
+
+        window.location.href = "found.html";
+
+    }
+
+    else{
+
+        window.location.href = "index.html";
+
+    }
+
+}
+
 </script>
 
 </body>
