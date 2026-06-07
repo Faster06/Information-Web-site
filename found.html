@@ -463,10 +463,9 @@ input.addEventListener("input", () => {
         return;
     }
 
-    const filtered = movies.filter(m =>
-        m.title.toLowerCase().includes(value) ||
-        m.genre.toLowerCase().includes(value)
-    );
+const filtered = movies.filter(m =>
+    m.title.toLowerCase().includes(value)
+);
 
     if (filtered.length === 0) {
         empty.style.display = "block";
