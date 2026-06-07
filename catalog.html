@@ -332,11 +332,22 @@ movies
         const card = document.createElement("div");
         card.className = "card";
 
-        card.innerHTML = `
-            <img src="${movie.img}">
-            <h3>${movie.title}</h3>
-            <div class="rating">⭐ ${movie.rating}</div>
-        `;
+       card.innerHTML = `
+
+    <a href="${movie.link || '#'}"
+       style="text-decoration:none; color:inherit;">
+
+        <img src="${movie.img}">
+
+        <h3>${movie.title}</h3>
+
+        <div class="rating">
+            ⭐ ${movie.rating}
+        </div>
+
+    </a>
+
+`;
 
         container.appendChild(card);
     });
