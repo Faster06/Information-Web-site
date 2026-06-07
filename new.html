@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Новинки</title>
+<style>
+body{font-family:Segoe UI;background:#f5f5f5;margin:0;padding:20px;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
+.card{background:#fff;padding:10px;border-radius:12px;}
+img{width:100%;border-radius:10px;}
+</style>
+</head>
+<body>
+
+<h1>Новинки</h1>
+<div class="grid" id="list"></div>
+
+<script>
+const movies = JSON.parse(localStorage.getItem("moviesData"));
+
+const newMovies = movies.filter(m => m.category === "new");
+
+newMovies.forEach(m => {
+    document.getElementById("list").innerHTML += `
+        <div class="card">
+            <a href="${m.link || '#'}">
+                <img src="${m.img}">
+                <h3>${m.title}</h3>
+            </a>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>
