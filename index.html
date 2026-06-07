@@ -287,21 +287,25 @@
         margin-left: 5px;
     }
     .section-title-row{
-    flex-direction: row; /* остаётся в одну линию */
-    justify-content: space-between;
-    align-items: center;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:40px;
 }
 
-/* кнопка "Все" остаётся справа, но компактнее */
 .section-title-row button{
-    padding: 5px 10px;
-    font-size: 12px;
+    padding:6px 14px;
+    border:none;
+    border-radius:8px;
+    background:#6c5ce7;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
 }
 
-/* заголовок не съезжает */
-.section-title{
-    font-size: 18px;
-    margin-left: 5px;
+.section-title-row button:hover{
+    background:#5a4fd6;
 }
 }
 .section-title-row{
