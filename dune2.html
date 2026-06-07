@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дюна 2</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Segoe UI, sans-serif;
+    background:#0f0f1a;
+    color:white;
+}
+
+/* HEADER */
+header{
+    background:rgba(108,92,231,0.9);
+    padding:12px 20px;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* HERO */
+.hero{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    padding:40px 20px;
+    align-items:center;
+}
+
+/* POSTER */
+.hero img{
+    width:280px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* INFO */
+.info{
+    max-width:600px;
+}
+
+.info h1{
+    font-size:34px;
+    margin:0 0 10px;
+}
+
+.rating{
+    color:#f1c40f;
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.desc{
+    font-size:16px;
+    line-height:1.6;
+    opacity:0.9;
+    margin-bottom:20px;
+}
+
+/* BUTTON */
+button{
+    background:#6c5ce7;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#5a4fd6;
+    transform:scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .hero img{
+        width:70%;
+    }
+
+    .info h1{
+        font-size:26px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html">← Назад</a>
+</header>
+
+<div class="hero">
+
+    <img src="dune2.jpg" alt="Дюна 2">
+
+    <div class="info">
+        <h1>Дюна 2</h1>
+
+        <div class="rating">⭐ 8.9 / 10</div>
+
+        <p class="desc">
+            Пол Атрейдес объединяется с фрименами на пустынной планете Арракис, 
+            чтобы отомстить за свою семью и изменить судьбу галактики. 
+            Его ждёт война, пророчество и выбор, который определит будущее всего мира.
+        </p>
+
+        <button onclick="location.href='found.html'">
+            🔎 Найти похожие фильмы
+        </button>
+    </div>
+
+</div>
+
+</body>
+</html>
