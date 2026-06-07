@@ -676,12 +676,6 @@ localStorage.setItem("moviesData", JSON.stringify(movies));
 <script>
 function renderMovies() {
 
-    const limits = {
-        new: 6,
-        gold: 6,
-        recommendations: movies.length
-    };
-
     const counters = {
         new: 0,
         gold: 0,
@@ -692,7 +686,8 @@ function renderMovies() {
 
         const category = movie.category;
 
-        // ограничение только для new и gold
+        if (!document.getElementById(category)) return;
+
         if (category === "new" || category === "gold") {
             if (counters[category] >= 6) return;
             counters[category]++;
@@ -709,13 +704,10 @@ function renderMovies() {
             </a>
         `;
 
-        const container = document.getElementById(movie.category);
-
-        if (container) {
-            container.appendChild(card);
-        }
+        document.getElementById(category).appendChild(card);
     });
 }
+renderMovies();
 </script>
 </body>
 </html>
