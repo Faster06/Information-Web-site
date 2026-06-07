@@ -225,8 +225,7 @@ body.dark a{
 
 <body>
 <header>
-   
-    <a href="index.html" style="color:white; font-size:18px">← Назад</a>
+   <a href="index.html" style="color:white; font-size:18px">← Назад</a>
 </header>
 
 
@@ -261,192 +260,55 @@ function goCategory(type) {
 
 <script>
 const movies = [
-       {
+
+{
     title: "Атака титанов",
     img: "aot.jpg",
     rating: 9.0,
-    category: "recommendations",
-    link: "Title AOT.html"  
-   
-    },
-    {
-        title: "Матрица",
-        img: "matrix.jpg",
-        rating: 8.7,
-        category: "recommendations",
-        link: "title.html?id=aot"
+    genre: "anime",
+    link: "Title AOT.html"
+},
 
-    },
-    {
-        title: "Зверополис",
-        img: "zootopia.jpg",
-        rating: 8.0,
-        category: "recommendations",
-        link: "страница тайтла Зверополис.html"
-               
-           
-    },
-    {
-        title: "Кунг-фу Панда",
-        img: "kungfu.jpg",
-        rating: 7.8,
-        category: "recommendations"
-        
-        
-        
-     },
-    {
-        title: "Твоё имя",
-        img: "yourname.jpg",
-        rating: 9.0,
-        category: "recommendations"
-       
-        
-    },
-    {
-        title: "Детектив Конан",
-        img: "conan.jpg",
-        rating: 8.2,
-        category: "recommendations"
-        
-    },
-    {
-        title: "Rush hour",
-        img: "rushhour.jpg",
-        rating: 7.0,
-        category: "recommendations"
-        
-      
-    },
-    {
-        title: "Добро пожаловать в ад ирума-кун",
-        img: "iruma.jpg",
-        rating: 7.8,
-        category: "recommendations"
-       
-       
-    },
-    {
-        title: "Детектив Монк",
-        img: "monk.jpg",
-        rating: 8.1,
-        category: "recommendations"
-             
-    },
-    {
-        title: "Аватар",
-        img: "avatar.jpg",
-        rating: 7.8,
-        category: "recommendations"        
-    },
-    {
-        title: "Унесённые призриками",
-        img: "spiritedaway.jpg",
-        rating: 9.0,
-        category: "recommendations"
-       
-      
-    },
-    {
-        title: "Начало",
-        img: "inception.jpg",
-        rating: 8.8,
-        category: "recommendations"         
-    },
-    {
-        title: "Клинок рассекающий демонов",
-        img: "demonslayer.jpg",
-        rating: 8.7,
-        
-     
-        
-    },
-    {
-        title: "Смурфики",
-        img: "smurfs.jpg",
-        rating: 5.4,
-        category: "recommendations"        
-    },
-    {
-        title: "Аватар Анг",
-        img: "atla.jpg",
-        rating: 8.0,
-        category: "recommendations"        
-    },
-    {
-        title: "Необъятый океан",
-        img: "grandblue.jpg",
-        rating: 8.5,
-        category: "recommendations"       
-        
-    },
+{
+    title: "Матрица",
+    img: "matrix.jpg",
+    rating: 8.7,
+    genre: "movie",
+    link: "matrix.html"
+},
 
+{
+    title: "Зверополис",
+    img: "zootopia.jpg",
+    rating: 8.0,
+    genre: "cartoon",
+    link: "zootopia.html"
+},
 
+{
+    title: "Кунг-фу Панда",
+    img: "kungfu.jpg",
+    rating: 7.8,
+    genre: "cartoon",
+    link: "kungfu.html"
+},
 
+{
+    title: "Твоё имя",
+    img: "yourname.jpg",
+    rating: 9.0,
+    genre: "anime",
+    link: "yourname.html"
+},
 
+{
+    title: "Breaking Bad",
+    img: "Breaking Bad.jpg",
+    rating: 9.5,
+    genre: "serial",
+    link: "breakingbad.html"
+}
 
-
-
-
-
-
-
-
-
-
-    {
-        title: "Титаник",
-        img: "titanik.jpg",
-        rating: 8.0,
-        category: "gold"
-          },
-     {
-        title: "Ходячий Замок",
-        img: "замок.jpg",
-        rating: 8.3,
-        category: "gold"
-           },
-    {
-        title: "Breaking Bad",
-        img: "Breaking Bad.jpg",
-        rating: 7.6,
-        category: "gold"
-       
-    },
-     {
-        title: "Волк с Уолт-Стрида",
-        img: "wolf.jpg",
-        rating: 7.6,
-        category: "gold"
-        
-        
-    },
-
-
-
-    {
-        title: "Новый тайтл",
-        img: "https://via.placeholder.com/300",
-        rating: 9.0,
-        category: "new"
-        
-    },
-    {
-        title: "Новый тайтл",
-        img: "https://via.placeholder.com/300",
-        rating: 9.0,
-        category: "new"
-          },
-    {
-        title: "Новый тайтл",
-        img: "https://via.placeholder.com/300",
-        rating: 9.0,
-        category: "new"
-       
-    },
-
-
-     
 ];
 
 const input = document.getElementById("searchInput");
@@ -463,9 +325,12 @@ input.addEventListener("input", () => {
         return;
     }
 
-const filtered = movies.filter(m =>
-    m.title.toLowerCase().includes(value) ||
-    (m.category && m.category.toLowerCase().includes(value))
+const filtered = movies.filter(movie =>
+
+    movie.title.toLowerCase().includes(value) ||
+
+    movie.genre.toLowerCase().includes(value)
+
 );
 
     if (filtered.length === 0) {
