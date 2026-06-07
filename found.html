@@ -252,23 +252,201 @@ if(localStorage.getItem("theme") === "dark"){
 </script>
     
 
+   
+<script>
+function goCategory(type) {
+    window.location.href = "catalog.html?category=" + type;
+}
+</script>
+
 <script>
 const movies = [
-    {title:"Матрица", img:"matrix.jpg", rating:8.7, genre:"sci-fi",},
-    {title:"Атака титанов", img:"aot.jpg", rating:9.0, genre:"anime"},
-    {title:"Зверополис", img:"zootopia.jpg", rating:8.0, genre:"cartoon"},
-    {title:"Кунг-фу Панда", img:"kungfu.jpg", rating:7.8, genre:"cartoon"},
-    {title:"Твоё имя", img:"yourname.jpg", rating:9.0, genre:"anime"},
-    {title:"Детектив Конан", img:"conan.jpg", rating:9.0, genre:"anime"},
-    {title:"Клинок рассекающий демонов", img:"demonslayer.jpg", rating:9.0, genre:"anime"},
-    {title:"Необьятий море", img:"grandblue.jpg", rating:9.0, genre:"anime"},
-    {title:"Добро пожаловат в ад ирума-кун", img:"iruma.jpg", rating:9.0, genre:"anime"},
-    {title:"Детектив Монк", img:"monk.jpg", rating:9.0, genre:"serial"},
-    {title:"Во всё тяжкое", img:"Breaking Bad.jpg", rating:9.0, genre:"serial"},
-    {title:"Титаник", img:"titanik.jpg", rating:9.0, genre:"movie"},
-    {title:"Смурфики", img:"smurfs.jpg", rating:9.0, genre:"cartoon"},
-    {title:"Начало", img:"incaption.jpg", rating:9.0, genre:"movie"},
-    {title:"Ходячий замок", img:"Зомок.jpg", rating:9.0, genre:"anime"}
+       {
+    title: "Атака титанов",
+    img: "aot.jpg",
+    rating: 9.0,
+    category: "recommendations",
+    link: "Title AOT.html"  
+   
+    },
+    {
+        title: "Матрица",
+        img: "matrix.jpg",
+        rating: 8.7,
+        category: "recommendations",
+        link: "title.html?id=aot"
+
+    },
+    {
+        title: "Зверополис",
+        img: "zootopia.jpg",
+        rating: 8.0,
+        category: "recommendations",
+        link: "страница тайтла Зверополис.html"
+               
+           
+    },
+    {
+        title: "Кунг-фу Панда",
+        img: "kungfu.jpg",
+        rating: 7.8,
+        category: "recommendations"
+        
+        
+        
+     },
+    {
+        title: "Твоё имя",
+        img: "yourname.jpg",
+        rating: 9.0,
+        category: "recommendations"
+       
+        
+    },
+    {
+        title: "Детектив Конан",
+        img: "conan.jpg",
+        rating: 8.2,
+        category: "recommendations"
+        
+    },
+    {
+        title: "Rush hour",
+        img: "rushhour.jpg",
+        rating: 7.0,
+        category: "recommendations"
+        
+      
+    },
+    {
+        title: "Добро пожаловать в ад ирума-кун",
+        img: "iruma.jpg",
+        rating: 7.8,
+        category: "recommendations"
+       
+       
+    },
+    {
+        title: "Детектив Монк",
+        img: "monk.jpg",
+        rating: 8.1,
+        category: "recommendations"
+             
+    },
+    {
+        title: "Аватар",
+        img: "avatar.jpg",
+        rating: 7.8,
+        category: "recommendations"        
+    },
+    {
+        title: "Унесённые призриками",
+        img: "spiritedaway.jpg",
+        rating: 9.0,
+        category: "recommendations"
+       
+      
+    },
+    {
+        title: "Начало",
+        img: "inception.jpg",
+        rating: 8.8,
+        category: "recommendations"         
+    },
+    {
+        title: "Клинок рассекающий демонов",
+        img: "demonslayer.jpg",
+        rating: 8.7,
+        
+     
+        
+    },
+    {
+        title: "Смурфики",
+        img: "smurfs.jpg",
+        rating: 5.4,
+        category: "recommendations"        
+    },
+    {
+        title: "Аватар Анг",
+        img: "atla.jpg",
+        rating: 8.0,
+        category: "recommendations"        
+    },
+    {
+        title: "Необъятый океан",
+        img: "grandblue.jpg",
+        rating: 8.5,
+        category: "recommendations"       
+        
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+        title: "Титаник",
+        img: "titanik.jpg",
+        rating: 8.0,
+        category: "gold"
+          },
+     {
+        title: "Ходячий Замок",
+        img: "замок.jpg",
+        rating: 8.3,
+        category: "gold"
+           },
+    {
+        title: "Breaking Bad",
+        img: "Breaking Bad.jpg",
+        rating: 7.6,
+        category: "gold"
+       
+    },
+     {
+        title: "Волк с Уолт-Стрида",
+        img: "wolf.jpg",
+        rating: 7.6,
+        category: "gold"
+        
+        
+    },
+
+
+
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+        
+    },
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+          },
+    {
+        title: "Новый тайтл",
+        img: "https://via.placeholder.com/300",
+        rating: 9.0,
+        category: "new"
+       
+    },
+
+
+     
 ];
 
 const input = document.getElementById("searchInput");
@@ -298,15 +476,21 @@ input.addEventListener("input", () => {
 
     empty.style.display = "none";
 
-    filtered.forEach(movie => {
-        results.innerHTML += `
-            <div class="card">
+   filtered.forEach(movie => {
+    results.innerHTML += `
+        <div class="card">
+
+            <a href="${movie.link || '#'}"
+               style="text-decoration:none; color:inherit;">
+
                 <img src="${movie.img}">
                 <h3>${movie.title}</h3>
                 <div class="rating">⭐ ${movie.rating}</div>
-            </div>
-        `;
-    });
+
+            </a>
+
+        </div>
+    `;
 });
 </script>
 
