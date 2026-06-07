@@ -696,7 +696,7 @@ function renderMovies() {
         if (!document.getElementById(category)) return;
 
         if (category === "new" || category === "gold") {
-            if (counters[category] >= 6) return;
+            if (counters[category] >= 3) return;
             counters[category]++;
         }
 
