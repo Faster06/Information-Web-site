@@ -305,6 +305,27 @@ header h1{
     margin-left:5px;
 }
 }
+.section-title-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:40px;
+}
+
+.section-title-row button{
+    padding:6px 14px;
+    border:none;
+    border-radius:8px;
+    background:#6c5ce7;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.section-title-row button:hover{
+    background:#5a4fd6;
+}
     body.dark {
     background: #121212;
     color: #eee;
@@ -382,15 +403,17 @@ body.dark button {
     <button onclick="goCategory('cartoon')">Мультфильмы</button>
     <button onclick="goCategory('serial')">Сериалы</button>
 </div>
-   <div class="section">
+  <div class="section-title-row">
     <h2 class="section-title">Новинки</h2>
-    <div class="grid" id="new"></div>
+    <button onclick="location.href='new.html'">Все</button>
 </div>
+<div class="grid" id="new"></div>
 
-<div class="section">
+<div class="section-title-row">
     <h2 class="section-title">Золотая коллекция</h2>
-    <div class="grid" id="gold"></div>
+    <button onclick="location.href='gold.html'">Все</button>
 </div>
+<div class="grid" id="gold"></div>
 
 <div class="section">
     <h2 class="section-title">Рекомендации</h2>
@@ -595,18 +618,6 @@ const movies = [
         
         
     },
-
-
-
-   {
-    title: "Solo Leveling",
-    img: "sololeveling.jpg",
-    rating: 9.1,
-    category: "new",
-    genre: "anime",
-    link: "sololeveling.html"
-},
-
 {
     title: "Дюна 2",
     img: "dune2.jpg",
